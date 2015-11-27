@@ -27,12 +27,20 @@ project/                 ... your project directory
 
 ## How to Use
 
+### Installation
+
 ~~~
 $ cd /path/to/project/
 $ git clone git@github.com:kenjis/vagrant-centos7-php.git
 $ cd vagrant-centos7-php/
 $ vagrant up
 ~~~
+
+### Accessing Your Project
+
+* Web
+  * Port Forwarding: [http://localhost:8000/](http://localhost:8000/)
+  * IP Address: [http://192.168.33.33/](http://192.168.33.33/)
 
 ## Vagrant
 
