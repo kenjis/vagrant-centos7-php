@@ -1,4 +1,4 @@
-- name: Instal Git
+- name: Install Git
   yum: pkg={{ item }} state=present
   with_items:
     - git
