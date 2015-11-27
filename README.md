@@ -6,11 +6,10 @@ This project sets up a CentOS 7.1 (64bit) virtual machine to run your PHP projec
 
 * VirtualBox - Free virtualization software. [Download](https://www.virtualbox.org/wiki/Downloads)
 * Vagrant - Tool for working with VirtualBox images. [Download](https://www.vagrantup.com/downloads.html)
-* Ansible - Simple IT automation system. [Installation](http://docs.ansible.com/ansible/intro_installation.html)
 
 ### Tested on
 
-* Mac OS X 10.10.5 - VirtualBox 5.0.10 & Vagrant 1.7.4 & Ansible 1.9.4
+* Mac OS X 10.10.5 - VirtualBox 5.0.10 & Vagrant 1.7.4
 
 ## What's in the Development Environment?
 

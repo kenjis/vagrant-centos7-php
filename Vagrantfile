@@ -66,10 +66,11 @@ Vagrant.configure(2) do |config|
   # end
 
   # Enable provisioning with Ansible.
-  config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "provisioning/site.yml"
-    ansible.inventory_path = "provisioning/hosts"
-    ansible.limit = 'all'
-    ansible.verbose = 'vv'
-  end
+  config.vm.provision "shell", :path => "provision.sh"
+  #config.vm.provision "ansible" do |ansible|
+  #  ansible.playbook = "provisioning/site.yml"
+  #  ansible.inventory_path = "provisioning/hosts"
+  #  ansible.limit = 'all'
+  #  ansible.verbose = 'vv'
+  #end
 end
