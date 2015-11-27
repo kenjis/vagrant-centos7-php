@@ -1,6 +1,6 @@
 # Vagrant CentOS7 PHP Development Environment
 
-This project sets up a CentOS 7.x (64bit) virtual machine to run your PHP project in.
+This project sets up a CentOS 7.1 (64bit) virtual machine to run your PHP project in.
 
 ## Requirements
 
