@@ -9,4 +9,5 @@
   roles:
     - httpd
     - php55-remi
+    - php-project
     - git

@@ -1,0 +1,17 @@
+- name: Install Apache config file
+  template: src=php-project.conf dest=/etc/httpd/conf.d/php-project.conf mode=0644
+  notify: restart httpd
+
+- name: Install remount-mnt-project.sh
+  template: src=remount-mnt-project.sh dest=/etc/init.d/remount-mnt-project.sh mode=0755
+
+- name: Install remount-mnt-project.service
+  template: src=remount-mnt-project.service dest=/etc/systemd/system/remount-mnt-project.service mode=0644
+
+- name: Enable remount-mnt-project.service
+  command: systemctl enable remount-mnt-project
+
+- name: Run remount-mnt-project.sh
+  command: systemctl start remount-mnt-project
+
+# @TODO Create MySQL Databases

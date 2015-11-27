@@ -1,6 +1,6 @@
 # Vagrant CentOS7 PHP Development Environment
 
-This project sets up a CentOS 7.1 (64bit) virtual machine to run your PHP project in.
+This project sets up a CentOS 7.1 (64bit) virtual machine to run your PHP project in. It mounts your PHP project directory so that you can use your favorite editors to work.
 
 ## Requirements
 
@@ -17,7 +17,24 @@ This project sets up a CentOS 7.1 (64bit) virtual machine to run your PHP projec
 * Apache 2.4
 * Git 1.8.3
 
-### Vagrant
+## Directory Structure
+
+~~~
+project/                 ... your project directory
+├── public/              ... web document root
+└── vagrant-centos7-php/ ... this repository
+~~~
+
+## How to Use
+
+~~~
+$ cd /path/to/project/
+$ git clone git@github.com:kenjis/vagrant-centos7-php.git
+$ cd vagrant-centos7-php/
+$ vagrant up
+~~~
+
+## Vagrant
 
 Here are common commands:
 

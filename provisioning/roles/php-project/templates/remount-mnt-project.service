@@ -1,0 +1,11 @@
+[Unit]
+Description=Remount /mnt/project
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/etc/init.d/remount-mnt-project.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
