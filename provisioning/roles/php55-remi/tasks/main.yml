@@ -1,0 +1,37 @@
+# See http://blog.remirepo.net/pages/Config-en
+
+- name: Install epel repo
+  yum: name=https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm state=present
+
+- name: Install remi repo
+  yum: name=http://rpms.remirepo.net/enterprise/remi-release-7.rpm state=present
+
+- name: Check PHP 5.5 installed
+  shell: | 
+    rpm -qa | grep php-5\.5; echo $?
+  register: result
+
+- name: Instal PHP 5.5
+  yum: pkg={{ item }} enablerepo=remi,remi-php55 state=present
+  with_items:
+    - php
+    - php-mbstring
+    - php-gd
+    - php-mcrypt
+    - php-mysqlnd
+    - php-pear
+    - php-xml
+    - php-pecl-xdebug
+    - php-opcache
+    - php-pecl-apcu
+    - php-intl
+  when: result.stdout == '1'
+
+- name: Update php.ini
+  template: src=php.ini.j2 dest=/etc/php.ini
+  when: result.stdout == '1'
+
+- name: Update xdebug.ini
+  template: src=xdebug.ini dest=/etc/php.d/xdebug.ini
+  notify: restart httpd
+  when: result.stdout == '1'
