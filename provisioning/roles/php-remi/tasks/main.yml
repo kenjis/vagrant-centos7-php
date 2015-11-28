@@ -38,5 +38,5 @@
   template: src=php.ini-{{ php_remi_repo }}.j2 dest=/etc/php.ini
 
 - name: Update xdebug.ini
-  template: src=xdebug.ini dest=/etc/php.d/xdebug.ini
+  template: src=xdebug.ini dest=/etc/php.d/15-xdebug.ini
   notify: restart httpd
