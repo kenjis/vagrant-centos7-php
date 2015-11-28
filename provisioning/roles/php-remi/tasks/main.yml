@@ -35,7 +35,7 @@
   when: result.rc != 0
 
 - name: Update php.ini
-  template: src=php.ini.j2 dest=/etc/php.ini
+  template: src=php.ini-{{ php_remi_repo }}.j2 dest=/etc/php.ini
 
 - name: Update xdebug.ini
   template: src=xdebug.ini dest=/etc/php.d/xdebug.ini
