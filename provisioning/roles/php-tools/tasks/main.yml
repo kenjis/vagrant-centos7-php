@@ -1,0 +1,48 @@
+- name: Install Composer
+  shell: >
+    curl -sS https://getcomposer.org/installer | php;
+    mv composer.phar /usr/local/bin/composer;
+  args:
+    creates: /usr/local/bin/composer
+
+- name: Install PHPUnit
+  shell: >
+    /usr/local/bin/composer global require 'phpunit/phpunit=5.0.*';
+  args:
+    creates: /home/vagrant/.composer/vendor/bin/phpunit
+  become: yes
+  become_user: vagrant
+
+- name: Install PHP QA tools
+  shell: >
+    /usr/local/bin/composer global require 'squizlabs/php_codesniffer=2.2.*';
+    /usr/local/bin/composer global require 'phploc/phploc=2.0.*';
+    /usr/local/bin/composer global require 'pdepend/pdepend=2.0.*';
+    /usr/local/bin/composer global require 'phpmd/phpmd=2.2.*';
+    /usr/local/bin/composer global require 'sebastian/phpcpd=2.0.*';
+    /usr/local/bin/composer global require 'theseer/phpdox=0.7.*';
+    /usr/local/bin/composer global require 'phing/phing=2.9.*';
+  args:
+    creates: /home/vagrant/.composer/vendor/bin/phing
+  become: yes
+  become_user: vagrant
+
+- name: Install fuelphp-phpcs
+  shell: >
+    cd /tmp;
+    git clone https://github.com/eviweb/fuelphp-phpcs.git;
+    mv fuelphp-phpcs/Standards/FuelPHP /home/vagrant/.composer/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards;
+    rm -rf fuelphp-phpcs;
+  args:
+    creates: /home/vagrant/.composer/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/FuelPHP
+  become: yes
+  become_user: vagrant
+
+- name: Add global composer bin to $PATH
+  shell: >
+    sed -i -e '/\.composer/d' /home/vagrant/.bash_profile;
+    sed -i -e '/export PATH/d' /home/vagrant/.bash_profile;
+    echo 'PATH="$HOME/.composer/vendor/bin:$PATH"' >>/home/vagrant/.bash_profile;
+    echo 'export PATH' >>/home/vagrant/.bash_profile;
+  become: yes
+  become_user: vagrant

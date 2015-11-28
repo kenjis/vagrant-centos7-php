@@ -4,12 +4,13 @@
 - name: apply common configuration to all nodes
   hosts: all
   remote_user: vagrant
-  sudo: true
+  sudo: yes
 
   roles:
+    - git
     - httpd
     - mariadb
     - php-remi
     - phpmyadmin-remi
     - php-project
-    - git
+    - php-tools
