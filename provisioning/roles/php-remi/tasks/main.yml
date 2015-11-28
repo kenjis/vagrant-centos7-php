@@ -10,23 +10,13 @@
   shell: | 
     test `rpm -qa | grep ^php-[0-9] | sed -e 's/\.//g' | cut -c5-6` = `echo {{ php_remi_repo }} | cut -c9-10`
   register: result
-  failed_when: result.rc not in [0, 1]
+  failed_when: result.rc not in [0, 1, 2]
 
 - name: Remove exsiting PHP
-  yum: pkg={{ item }} enablerepo=remi,{{ php_remi_repo }} state=absent
+  yum: pkg={{ item }} state=absent
   with_items:
-    - php
-    - php-mbstring
-    - php-gd
-    - php-mcrypt
-    - php-mysqlnd
-    - php-pear
-    - php-xml
-    - php-pecl-xdebug
-    - php-opcache
-    - php-pecl-apcu
-    - php-intl
-  when: result.rc == 1
+    - "php*"
+  when: result.rc != 0
 
 - name: Instal PHP
   yum: pkg={{ item }} enablerepo=remi,{{ php_remi_repo }} state=present
@@ -42,7 +32,7 @@
     - php-opcache
     - php-pecl-apcu
     - php-intl
-  when: result.rc == 1
+  when: result.rc != 0
 
 - name: Update php.ini
   template: src=php.ini.j2 dest=/etc/php.ini
