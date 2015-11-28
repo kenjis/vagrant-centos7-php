@@ -13,7 +13,7 @@ This project sets up a CentOS 7.1 (64bit) virtual machine to run your PHP projec
 
 ## What's in the Development Environment?
 
-* PHP 7.0 (remi)
+* PHP 7.0 (remi) (or 5.6, 5.5. See [group_vars/all](https://github.com/kenjis/vagrant-centos7-php/blob/master/provisioning/group_vars/all#L4-L5).)
   * Xdebug
   * Zend OPcache
   * APCu
