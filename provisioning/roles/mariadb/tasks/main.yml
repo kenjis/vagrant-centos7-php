@@ -1,0 +1,34 @@
+- name: Check MariaDB installed
+  shell: | 
+    rpm -qa | grep mariadb-server; echo $?
+  register: result
+
+- name: Install MariaDB server
+  yum: pkg={{ item }} state=present
+  with_items:
+    - mariadb-server
+    - MySQL-python
+  when: result.stdout == '1'
+
+- name: Ensure MariaDB running
+  service: name=mariadb state=started enabled=true
+
+- name: Set root password for all root accounts
+  mysql_user: name=root host={{ item }} password={{ mariadb_root_password }} priv=*.*:ALL,GRANT
+  with_items:
+    - 127.0.0.1
+    - ::1
+    - localhost.localdomain
+    - localhost
+  when: result.stdout == '1'
+
+- name: Remove anonymous user on localhost
+  mysql_user: login_user=root login_password={{ mariadb_root_password }} name='' host=localhost state=absent
+
+- name: Remove anonymous user on localhost.localdomain
+  mysql_user: login_user=root login_password={{ mariadb_root_password }} name='' host=localhost.localdomain state=absent
+
+- name: Remove test database
+  mysql_db: login_user=root login_password={{ mariadb_root_password }} name=test state=absent
+  notify:
+    - restart mariadb-server

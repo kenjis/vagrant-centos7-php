@@ -8,6 +8,8 @@
 
   roles:
     - httpd
+    - mariadb
     - php55-remi
+    - phpmyadmin-remi
     - php-project
     - git

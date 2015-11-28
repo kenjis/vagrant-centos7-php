@@ -1,0 +1,4 @@
+---
+# Variables listed here are applicable to vagrants groups
+
+mariadb_root_password: root

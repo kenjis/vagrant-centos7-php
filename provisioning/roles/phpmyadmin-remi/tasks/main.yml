@@ -1,0 +1,8 @@
+- name: Instal phpMyAdmin
+  yum: pkg={{ item }} enablerepo=remi,remi-php55 state=present
+  with_items:
+    - phpMyAdmin
+
+- name: Update phpMyAdmin.conf
+  template: src=phpMyAdmin.conf dest=/etc/httpd/conf.d/phpMyAdmin.conf
+  notify: restart httpd

@@ -29,9 +29,7 @@
 
 - name: Update php.ini
   template: src=php.ini.j2 dest=/etc/php.ini
-  when: result.stdout == '1'
 
 - name: Update xdebug.ini
   template: src=xdebug.ini dest=/etc/php.d/xdebug.ini
   notify: restart httpd
-  when: result.stdout == '1'
