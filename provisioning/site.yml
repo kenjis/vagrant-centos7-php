@@ -9,7 +9,7 @@
   roles:
     - httpd
     - mariadb
-    - php55-remi
+    - php-remi
     - phpmyadmin-remi
     - php-project
     - git

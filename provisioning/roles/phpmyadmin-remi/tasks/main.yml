@@ -1,5 +1,5 @@
 - name: Instal phpMyAdmin
-  yum: pkg={{ item }} enablerepo=remi,remi-php55 state=present
+  yum: pkg={{ item }} enablerepo=remi,{{ php_remi_repo }} state=present
   with_items:
     - phpMyAdmin
 

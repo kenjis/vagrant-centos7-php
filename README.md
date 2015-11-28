@@ -13,7 +13,7 @@ This project sets up a CentOS 7.1 (64bit) virtual machine to run your PHP projec
 
 ## What's in the Development Environment?
 
-* PHP 5.5 (remi)
+* PHP 7.0 (remi)
   * Xdebug
   * Zend OPcache
   * APCu
