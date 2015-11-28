@@ -47,6 +47,7 @@ $ vagrant up
 * Web
   * Port Forwarding: [http://localhost:8000/](http://localhost:8000/)
   * IP Address: [http://192.168.33.33/](http://192.168.33.33/)
+  * phpMyAdmin: [http://localhost:8000/phpmyadmin/](http://localhost:8000/phpmyadmin/) (root password: `root`)
 
 ## Vagrant
 
