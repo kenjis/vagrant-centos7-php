@@ -14,4 +14,7 @@
 - name: Run remount-mnt-project.sh
   command: systemctl start remount-mnt-project
 
+- name: Create symlink to /mnt/project
+  file: src=/mnt/project dest=/home/vagrant/project state=link
+
 # @TODO Create MySQL Databases
