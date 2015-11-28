@@ -14,8 +14,14 @@ This project sets up a CentOS 7.1 (64bit) virtual machine to run your PHP projec
 ## What's in the Development Environment?
 
 * PHP 5.5 (remi)
-* Apache 2.4
-* Git 1.8.3
+  * Xdebug
+  * Zend OPcache
+  * APCu
+* Apache 2.4.6
+  * vhost setup for your PHP project
+* MariaDB 5.5.44
+* phpMyAdmin 4.4.15.1
+* Git 1.8.3.1
 
 ## Directory Structure
 
