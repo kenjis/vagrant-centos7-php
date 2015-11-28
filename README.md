@@ -10,6 +10,7 @@ This project sets up a CentOS 7.1 (64bit) virtual machine to run your PHP projec
 ## Tested on
 
 * Mac OS X 10.10.5 - VirtualBox 5.0.10 & Vagrant 1.7.4
+* Ubuntu 14.04 - VirtualBox 4.3.28 & Vagrant 1.6.5
 
 ## What's in the Development Environment?
 
@@ -29,6 +30,13 @@ This project sets up a CentOS 7.1 (64bit) virtual machine to run your PHP projec
 project/                 ... your project directory
 ├── public/              ... web document root
 └── vagrant-centos7-php/ ... this repository
+~~~
+
+If your web document root is not `public` folder, but the project folder, try to run the following commands:
+
+~~~
+$ cd /path/to/project/
+$ ln -s . public
 ~~~
 
 ## How to Use
