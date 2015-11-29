@@ -17,16 +17,16 @@ This project sets up a CentOS 7.1 (64bit) virtual machine to run your PHP projec
 ## What's in the Development Environment?
 
 * PHP 7.0 (remi) (or 5.6, 5.5. See [group_vars/all](https://github.com/kenjis/vagrant-centos7-php/blob/master/provisioning/group_vars/all#L4-L5).)
-  * Xdebug
+  * [Xdebug](http://xdebug.org/docs/)
   * Zend OPcache
   * APCu
-* Apache 2.4.6
+* [Apache 2.4.6](https://httpd.apache.org/docs/2.4/en/)
   * vhost setup for your PHP project
-* MariaDB 5.5.44
-* phpMyAdmin 4.4.15.1
-* PHPUnit 5.0
-* Composer 1.0-dev
-* Git 1.8.3.1
+* [MariaDB](https://mariadb.com/kb/en/mariadb/documentation/) 5.5.44
+* [phpMyAdmin](https://www.phpmyadmin.net/docs/) 4.4.15.1
+* [PHPUnit 5.0](https://phpunit.de/manual/5.0/en/index.html)
+* [Composer](https://getcomposer.org/doc/) 1.0-dev
+* [Git](https://git-scm.com/doc) 1.8.3.1
 
 ## Directory Structure
 
