@@ -1,6 +1,8 @@
 [Unit]
 Description=Remount /mnt/project
-After=local-fs.target
+Requires=mnt-project.mount
+After=mnt-project.mount
+RequiresMountsFor=/mnt/project
 
 [Service]
 Type=oneshot
