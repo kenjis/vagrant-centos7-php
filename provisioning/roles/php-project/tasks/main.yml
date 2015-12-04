@@ -17,4 +17,34 @@
 - name: Create symlink to /mnt/project
   file: src=/mnt/project dest=/home/vagrant/project state=link
 
-# @TODO Create MySQL Databases
+- name: Create MariaDB databases
+  mysql_db: login_user=root login_password={{ mariadb_root_password }} db={{ item.dbname }} state=present encoding=utf8mb4
+  with_items:
+    - "{{ mariadb_db }}"
+
+- name: Install MariaDB server.cnf
+  template: src=mariadb-server.cnf.j2 dest=/etc/my.cnf.d/server.cnf mode=0644
+
+- name: Create MariaDB slow query log file
+  shell: "touch {{ mariadb_slow_query_log_file }} creates={{ mariadb_slow_query_log_file }}"
+
+- name: Set ownership on slow query log file
+  file:
+    path: "{{ mariadb_slow_query_log_file }}"
+    state: file
+    owner: mysql
+    group: mysql
+    mode: 0644
+
+- name: Create MariaDB general log file
+  shell: "touch {{ mariadb_general_query_log_file }} creates={{ mariadb_general_query_log_file }}"
+
+- name: Set ownership on general query log file
+  file:
+    path: "{{ mariadb_general_query_log_file }}"
+    state: file
+    owner: mysql
+    group: mysql
+    mode: 0644
+  notify:
+    - restart mariadb-server

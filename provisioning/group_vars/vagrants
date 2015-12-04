@@ -2,3 +2,7 @@
 # Variables listed here are applicable to vagrants groups
 
 mariadb_root_password: root
+
+mariadb_db:
+  - dbname: php_dev
+  - dbname: php_test

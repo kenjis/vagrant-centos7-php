@@ -5,3 +5,6 @@
 php_remi_repo: remi-php70
 
 php_date_timezone: Asia/Tokyo
+
+mariadb_slow_query_log_file: /var/log/mariadb/slow.log
+mariadb_general_query_log_file: /var/log/mariadb/general.log
