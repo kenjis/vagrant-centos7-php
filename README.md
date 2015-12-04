@@ -50,7 +50,7 @@ $ ln -s . public
 
 ~~~
 $ cd /path/to/project/
-$ git clone git@github.com:kenjis/vagrant-centos7-php.git
+$ git clone https://github.com/kenjis/vagrant-centos7-php.git
 $ cd vagrant-centos7-php/
 $ vagrant up
 ~~~
