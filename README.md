@@ -81,3 +81,6 @@ Here are common commands:
 
 * [Vagrant Documentation](https://docs.vagrantup.com/v2/)
 * [Ansible Documentation](http://docs.ansible.com/ansible/index.html) (We use v1.9.4)
+
+If you look for CentOS6:
+* <https://github.com/kenjis/vagrant-centos6-php>
