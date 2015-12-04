@@ -23,6 +23,7 @@ This project sets up a CentOS 7.1 (64bit) virtual machine to run your PHP projec
 * [Apache 2.4.6](https://httpd.apache.org/docs/2.4/en/)
   * vhost setup for your PHP project
 * [MariaDB](https://mariadb.com/kb/en/mariadb/documentation/) 5.5.44
+  * **php_dev** and **php_test** databases
 * [phpMyAdmin](https://www.phpmyadmin.net/docs/) 4.4.15.1
 * [PHPUnit 5.0](https://phpunit.de/manual/5.0/en/index.html)
 * [Composer](https://getcomposer.org/doc/) 1.0-dev
