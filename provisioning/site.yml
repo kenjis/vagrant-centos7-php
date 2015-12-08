@@ -1,11 +1,8 @@
 ---
-# This playbook deploys the whole application stack in this site.  
 
-- name: apply common configuration to all nodes
-  hosts: all
+- hosts: vagrants
   remote_user: vagrant
   sudo: yes
-
   roles:
     - git
     - httpd
@@ -14,3 +11,12 @@
     - phpmyadmin-remi
     - php-project
     - php-tools
+
+- hosts: sakura-cloud
+  remote_user: root
+  roles:
+    - yum
+    - git
+    - httpd
+    - php-remi
+    - phpmyadmin-remi

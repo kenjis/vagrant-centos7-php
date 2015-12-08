@@ -1,3 +1,5 @@
+# This task is for vagrant
+
 - name: Install Composer
   shell: >
     curl -sS https://getcomposer.org/installer | php;

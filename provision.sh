@@ -11,4 +11,4 @@ if ! [ `which ansible` ]; then
     yum install -y ansible
 fi
 
-ansible-playbook -vv -i /vagrant/provisioning/hosts /vagrant/provisioning/site.yml
+ansible-playbook -vv -i /vagrant/provisioning/development /vagrant/provisioning/site.yml
